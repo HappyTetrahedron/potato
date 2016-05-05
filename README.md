@@ -7,7 +7,9 @@
 
 ## What we got to work:
 * Touchscreen (multitouch)
+* WiFi
 
 
 ## What's not working yet
-* WiFi
+* Power management
+* Turning off the screen
