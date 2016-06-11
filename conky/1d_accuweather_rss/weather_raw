@@ -1,0 +1,56 @@
+<?xml version = "1.0"?>
+<rss version="2.0">
+<channel>
+<title>Zurich, CH - AccuWeather.com Forecast</title>
+<link>http://www.accuweather.com/get/weather?page=extended&amp;locationid=316622</link>
+
+		<description>AccuWeather.com Forecast &amp; Current Conditions</description>
+		<ttl>60</ttl>
+		<copyright>Copyright 2016, AccuWeather, Inc., All rights reserved. For personal use only.</copyright>
+		<pubDate>Sat, 11 Jun 2016 15:28:08 GMT</pubDate> 
+		<language>en-us</language> 
+		<image>
+			<title>Zurich, CH - AccuWeather.com Forecast</title>
+<link></link>
+
+			<description>AccuWeather.com The Best Weather on the Web!</description>
+			<url>http://vortex.accuweather.com/adc2004/pub/images/logos/adc_logo_187.gif</url>
+			<width>144</width>
+			<height>19</height>
+		</image>		
+		<item>
+			<title>Currently: Cloudy: 19C</title> 
+			<link>http://www.accuweather.com</link>
+			<guid isPermaLink="false">http://www.accuweather.com</guid>
+			
+				<description>Currently in Zurich, CH: 19 &#176;C and Cloudy
+				&lt;img src="http://vortex.accuweather.com/phoenix2/images/common/icons/07_31x31.gif"&gt;
+				</description> 				
+			
+			<pubDate>Sat, 11 Jun 2016 15:28:08 GMT</pubDate>
+		</item>
+		
+			<item>
+				<title>6/11/2016 Forecast</title>
+				<link>http://www.accuweather.com/get/weather?locationid=316622&amp;day=1</link> 
+				<guid isPermaLink="false">http://www.accuweather.com/get/weather?locationid=316622&amp;day=1</guid>
+				<description>High: 19 C Low: 12 C A shower and t-storm around &lt;img src="http://vortex.accuweather.com/phoenix2/images/common/icons/15_31x31.gif" &gt;</description>
+				<pubDate>Sat, 11 Jun 2016 15:28:08 GMT</pubDate>
+			</item>
+		
+			<item>
+				<title>6/12/2016 Forecast</title>
+				<link>http://www.accuweather.com/get/weather?locationid=316622&amp;day=2</link> 
+				<guid isPermaLink="false">http://www.accuweather.com/get/weather?locationid=316622&amp;day=2</guid>
+				<description>High: 17 C Low: 11 C A shower and t-storm around &lt;img src="http://vortex.accuweather.com/phoenix2/images/common/icons/16_31x31.gif" &gt;</description>
+				<pubDate>Sat, 11 Jun 2016 15:28:08 GMT</pubDate>
+			</item>
+		<item>
+<title>The AccuWeather.com RSS Center</title>
+<description>To discover additional weather feeds, visit the AccuWeather.com RSS Center at http://www.accuweather.com/en/downloads</description>
+<link>http://www.accuweather.com/en/downloads</link>
+<guid isPermaLink="false">http://www.accuweather.com/en/downloads</guid>
+<pubDate>Sat, 11 Jun 2016 15:28:08 GMT</pubDate>
+</item>
+</channel>
+</rss>

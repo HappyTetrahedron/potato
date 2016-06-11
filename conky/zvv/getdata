@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Get the traffic data. To change the station for which to get the data, modify the id in the url below.
+# See http://transport.opendata.ch/ to find out how to use this API and find out which id you need.
+SOURCE=$(curl http://transport.opendata.ch/v1/stationboard?id=008591285\&limit=5)
+
+# Filter target stations. Note that I filter out the "Zurich". That means "Zurich, Schwamendingerplatz" becomes "Schwamendingerplatz"
+echo $SOURCE | jshon -e stationboard -a -e to | sed 's/"//g' | sed 's/Zürich, //' > /home/alinea/conky/zvv/targets
+
+# Filter line numbers
+echo $SOURCE | jshon -e stationboard -a -e number | sed 's/"//g' > /home/alinea/conky/zvv/numbers
+
+# Calculate the time until arrival
+TIMESTAMPS=$(echo $SOURCE | jsawk 'return this.stationboard' | jsawk 'return this.stop.departureTimestamp' | sed 's/\[//' | sed 's/\]//' | sed 's/,/\n/g' | sed 's/"//g') 
+
+
+# Clear the minutes file
+echo "" > /home/alinea/conky/zvv/minutes
+
+# Save every minute entry separately
+for line in $TIMESTAMPS
+do
+    echo $(( ( $line - $(date +%s) ) / 60 )) >> /home/alinea/conky/zvv/minutes
+done

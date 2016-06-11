@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# this script is based on calcurse. It requires calcurse to work.
+# This script does also not update your calcurse database. That needs to be done elsewhere (i.e. from a cronjob). You can synchronize any online caldav calender with calcurse.
+
+# Get appointments for the next two days. No todo items.
+calcurse -Q --from $(date +%m/%d/%Y) --days 2 --filter-type cal > /home/alinea/conky/cal/nextdates
