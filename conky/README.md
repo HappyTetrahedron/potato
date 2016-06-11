@@ -4,16 +4,16 @@ I use my potato as a fancy dashboard to display various data such as weather, ap
 
 I use conky to display this dashboard, and a collection of scripts to refresh the data.
 
+## Accuweather
+
+This is a script to gather data from accuweather. It works anywhere in the world, but I found the forecast to be rather imprecise.
+
+Documented in 1d_accuweather_rss. Example in conkyrc_accuweather.
+
 Requires:
 
 * wget
 * Conkyweather font
-
-## Accuweather
-
-This is a script to gather data from accuweather. It works anywhere in the world, but I found the forecast to be rather imprecise.
-)
-Documented in 1d_accuweather_rss. Example in conkyrc_accuweather.
 
 ## Meteo
 
