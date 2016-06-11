@@ -5,8 +5,9 @@ I use my potato as a fancy dashboard to display various data such as weather, ap
 I use conky to display this dashboard, and a collection of scripts to refresh the data.
 
 Requires:
-*wget
-*Conkyweather font
+
+* wget
+* Conkyweather font
 
 ## Accuweather
 
@@ -21,12 +22,13 @@ This script gathers weather data (temperature and precipitation) from Meteoswiss
 The script gets the weather data and generates a picture using python matplotlib. The picture is then included in conky (see conkyrc for example). I recommend calling the script periodically from a cronjob.
 
 Requires:
-*python3
-*python numpy
-*python matplotlib
-*curl
-*jshon
-*cronie or similar
+
+* python3
+* python numpy
+* python matplotlib
+* curl
+* jshon
+* cronie or similar
 
 ## ZVV
 
@@ -43,9 +45,10 @@ The id is then put in the getdata script. The script is executed periodically di
 Example can be found in conkyrc. Note that this script is not perfect. Sometimes, the line numbers, targets, and times don't align properly due to race condition (e.g. line 32 is said to go to Holzerhurd even though it actually goes to Schwamendingerplatz). This happens when conky updates the text while at the same time the data files are being updated.
 
 Requires:
-*curl
-*jshon
-*jsawk
+
+* curl
+* jshon
+* jsawk
 
 ## Calendar
 
@@ -61,3 +64,8 @@ The timespan for which events are shown can be altered in the getcal script. It'
 
 http://freecode.com/projects/calcurse
 
+
+Requires:
+
+* calcurse
+* cronie or similar
