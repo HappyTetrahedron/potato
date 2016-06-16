@@ -13,3 +13,5 @@
 ## What's not working yet
 * Power management
 * Turning off the screen
+* Audio
+* Cameras
