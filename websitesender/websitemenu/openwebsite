@@ -1,0 +1,5 @@
+#!/bin/bash
+
+firefox-nightly $1&
+killall showwebsites
+killall dzen2

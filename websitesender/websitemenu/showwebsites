@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat /home/user/websitemenu/websitelist | dzen2 -p -l 16 -m -e 'onstart=uncollapse' -sa c -h 60 -fg #ffffff
