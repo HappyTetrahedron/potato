@@ -47,10 +47,20 @@ Then, (re)start X and verify the touchscreen works.
 *Disclaimer: I'm writing this up from memory and I'm completely unsure whether this is correct*
 
 To automatically load the kernel module on boot, copy the .ko file to /lib/modules/extramodules<kernelversion>/
-Then, go to /lib/modprobe.d and create a new text file named
+Then, go to /etc/modules-load.d and create a new text file named
 "gslx680_ts_acpi.conf" containing the following line:
 
-insmod /lib/modules/extramodules<kernelversion>/gslx680_ts_acpi.ko
+    gslx680_ts_acpi
+
+After that, run as root:
+
+    depmod
+
+Try whether adding the module worked by running
+
+    modprobe gslx680_ts_acpi
+
+If that did't yell at you, automatically loading the module on boot should work now.
 
 ## Calibrate 
 
