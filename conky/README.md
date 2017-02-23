@@ -73,3 +73,13 @@ Requires:
 
 * calcurse
 * cronie or similar
+
+## Calendar - version 2
+
+A second approach to the calendar uses khal and vdirsyncer, the former to display appointments, the latter to synchronize with the caldav server. I had some issues with calcurse-caldav, so eventually switched to this approach. See example in conkyrc_khal file.
+
+To use it, install khal and vdirsyncer. Set up vdirsyncer to synchronize your caldav calendar(s) to a local directory, then set up khal to display those.
+
+Set up a cronjob to regularly synchronize your calendar using vdirsyncer.
+
+khal can be directly called from your conkyrc. No need for an extra script.

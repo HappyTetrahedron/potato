@@ -1,0 +1,77 @@
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type desktop
+own_window_transparent no
+own_window_hints undecorated,below,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer none
+use_xft yes
+
+# Update interval in seconds
+update_interval 3
+
+# Minimum size of text area
+minimum_size 580 500
+# maximum_width 600
+
+override_utf8_locale yes
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline yes # amplifies text if yes
+draw_borders no
+#font freesans -12
+xftfont dejavu:size=18
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 3
+
+# border margins
+border_margin 9
+
+# border width
+border_width 10
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color f6f6f6
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 10
+gap_y 30
+
+imlib_cache_size 0
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+${color 48bcff}TIME ${hr 2}$color
+${font dejavu:size=50}${time %k:%M}${font}
+${time %A, %B %e}
+
+${color 48bcff}BUSSES NEUAFFOLTERN ${hr 2}$color${execi 30 bash $HOME/conkystuff/zvv/getdata}
+${execpi 60  sed -n '1p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '1p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '2p' $HOME/conkystuff/zvv/minutes}'
+${execpi 60  sed -n '2p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '2p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '3p' $HOME/conkystuff/zvv/minutes}'
+${execpi 60  sed -n '3p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '3p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '4p' $HOME/conkystuff/zvv/minutes}'
+${execpi 60  sed -n '4p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '4p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '5p' $HOME/conkystuff/zvv/minutes}'
+${execpi 60  sed -n '5p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '5p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '6p' $HOME/conkystuff/zvv/minutes}'
+
+${color 48bcff}ZURICH WEATHER ${hr 2}$color${execi 600 bash $HOME/conkystuff/1d_accuweather_rss/1d}
+${image /home/alinea/conkystuff/meteo/weather.png -p 15,380 -f 900}
+
+${voffset 260}${color 48bcff}NEXT APPOINTMENTS ${hr 2}$color
+${execpi 900 khal list}
