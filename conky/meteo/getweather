@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# make sure we can access the proper X display
 export DISPLAY=:0
 
-# Get most recent forecast url from meteoswiss website.
-# If you want to change a location, you need to modify the zip code contained in this url (i.e. by appending another sed 's/8001/NEWZIPCODE' ). Untested.
+# get the Meteoswiss webpage and extract the json url
 URL=$(curl http://www.meteoswiss.admin.ch/home.html?tab=overview | grep forecast-chart/version | sed -e 's/^.*url="//' | sed 's/"//' | head -n 1)
 
-# get the actual forecast data
-curl http://www.meteoswiss.admin.ch$URL | jshon -e 0 > /home/alinea/conky/meteo/weather
+# get the json page and store in file
+curl http://www.meteoswiss.admin.ch$URL > /home/alinea/conkystuff/meteo/weather
 
-# generate a nice plot from the data
-python /home/alinea/conky/meteo/generateplot.py
+# call python script to read that file and generate fancy plot
+python /home/alinea/conkystuff/meteo/generateplot.py
