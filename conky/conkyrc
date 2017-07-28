@@ -63,10 +63,10 @@ ${font dejavu:size=50}${time %k:%M}${font}${goto 560}${voffset -40}${battery_bar
 ${voffset 40}${time %A, %B %e}
 
 ${color 48bcff}BUSSES SEEBACHERPLATZ ${hr 2}$color${texeci 30 bash $HOME/conkystuff/zvv/getdata}
-${execi 30 head -n 5 $HOME/conkystuff/zvv/data}
+${execi 30 head -n 6 $HOME/conkystuff/zvv/data}
 
 ${color 48bcff}ZURICH WEATHER ${hr 2}$color
-${image /home/alinea/conkystuff/meteo/weather.png -p 15,350 -f 900}
+${image /home/alinea/conkystuff/meteo/weather.png -p 15,370 -f 900}
 
 ${voffset 260}${color 48bcff}NEXT APPOINTMENTS ${hr 2}$color
 ${execpi 900 khal list --format "{start-time}-{end-time} {title}"}

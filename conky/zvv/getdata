@@ -1,22 +1,22 @@
 #!/bin/bash
 
 # Store the content of ZVV stationboard in variable. Edit the numeric value after id= to change to another station.
-SOURCE="$( curl http://transport.opendata.ch/v1/stationboard?id=008591355\&limit=5 )"
+SOURCE="$( curl http://transport.opendata.ch/v1/stationboard?id=008591355\&limit=15 | jq '.stationboard[] | select(.stop.departureTimestamp > '$(( $( date +%s ) + 60 ))')' )"
 
 # Extract destination strings
 dests=()
 while read line
 do
   dests+=("$line")
-done < <(echo $SOURCE | jq '.stationboard[].to' | sed -e 's/"//g' -e 's/Zürich, //')
+done < <(echo $SOURCE | jq '.to' | sed -e 's/"//g' -e 's/Zürich, //')
 
 
 # Extract bus numbers
-nrs=($( echo $SOURCE | jq '.stationboard[].number' | sed 's/"//g' ))
+nrs=($( echo $SOURCE | jq '.number' | sed 's/"//g' ))
 
 # Extract minutes
 mins=()
-for line in $( echo $SOURCE | jq '.stationboard[].stop.departureTimestamp' )
+for line in $( echo $SOURCE | jq '.stop.departureTimestamp' )
 do
     mins+=("$(( ( $line - $(date +%s) ) / 60 ))")
 done
