@@ -11,6 +11,7 @@ double_buffer yes
 use_spacer none
 use_xft yes
 
+
 # Update interval in seconds
 update_interval 3
 
@@ -27,17 +28,15 @@ draw_shades no
 draw_outline yes # amplifies text if yes
 draw_borders no
 #font freesans -12
-xftfont dejavu:size=18
+#xftfont ubuntumono:size=18
+xftfont Courier Prime Sans:size=18
 uppercase no # set to yes if you want all text to be in uppercase
 
 # Stippled borders?
 stippled_borders 3
 
 # border margins
-border_margin 9
-
-# border width
-border_width 10
+border_outer_margin 10
 
 # Default colors and also border colors, grey90 == #e5e5e5
 default_color f6f6f6
@@ -60,18 +59,14 @@ imlib_cache_size 0
 
 TEXT
 ${color 48bcff}TIME ${hr 2}$color
-${font dejavu:size=50}${time %k:%M}${font}
-${time %A, %B %e}
+${font dejavu:size=50}${time %k:%M}${font}${goto 560}${voffset -40}${battery_bar 10,30 axp288_fuel_gauge}
+${voffset 40}${time %A, %B %e}
 
-${color 48bcff}BUSSES NEUAFFOLTERN ${hr 2}$color${execi 30 bash $HOME/conkystuff/zvv/getdata}
-${execpi 60  sed -n '1p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '1p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '2p' $HOME/conkystuff/zvv/minutes}'
-${execpi 60  sed -n '2p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '2p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '3p' $HOME/conkystuff/zvv/minutes}'
-${execpi 60  sed -n '3p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '3p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '4p' $HOME/conkystuff/zvv/minutes}'
-${execpi 60  sed -n '4p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '4p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '5p' $HOME/conkystuff/zvv/minutes}'
-${execpi 60  sed -n '5p' $HOME/conkystuff/zvv/numbers}${goto 60}${execpi 30 sed -n '5p' $HOME/conkystuff/zvv/targets}${goto 350}${execpi 30 sed -n '6p' $HOME/conkystuff/zvv/minutes}'
+${color 48bcff}BUSSES SEEBACHERPLATZ ${hr 2}$color${texeci 30 bash $HOME/conkystuff/zvv/getdata}
+${execi 30 head -n 5 $HOME/conkystuff/zvv/data}
 
-${color 48bcff}ZURICH WEATHER ${hr 2}$color${execi 600 bash $HOME/conkystuff/1d_accuweather_rss/1d}
-${image /home/alinea/conkystuff/meteo/weather.png -p 15,380 -f 900}
+${color 48bcff}ZURICH WEATHER ${hr 2}$color
+${image /home/alinea/conkystuff/meteo/weather.png -p 15,350 -f 900}
 
-${voffset 260}${color 48bcff}NEXT APPOINTMENTS ${hr 2}$color${execi 900 bash $HOME/conkystuff/cal/getcal}
-${execpi 900 cat $HOME/conkystuff/cal/nextdates}
+${voffset 260}${color 48bcff}NEXT APPOINTMENTS ${hr 2}$color
+${execpi 900 khal list --format "{start-time}-{end-time} {title}"}
